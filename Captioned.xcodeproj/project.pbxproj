@@ -13,6 +13,8 @@
 		2D50FE45224A1EDA003F7DD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D50FE44224A1EDA003F7DD1 /* Assets.xcassets */; };
 		2D50FE48224A1EDA003F7DD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D50FE46224A1EDA003F7DD1 /* LaunchScreen.storyboard */; };
 		2D50FE50224A2290003F7DD1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D50FE4F224A2290003F7DD1 /* DetailViewController.swift */; };
+		2D50FE54224A41E7003F7DD1 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D50FE53224A41E7003F7DD1 /* Picture.swift */; };
+		2D50FE58224A6B0C003F7DD1 /* Planescape.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D50FE57224A6B0C003F7DD1 /* Planescape.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		2D50FE47224A1EDA003F7DD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D50FE49224A1EDA003F7DD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D50FE4F224A2290003F7DD1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2D50FE53224A41E7003F7DD1 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		2D50FE57224A6B0C003F7DD1 /* Planescape.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Planescape.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				2D50FE3D224A1ED9003F7DD1 /* AppDelegate.swift */,
 				2D50FE3F224A1ED9003F7DD1 /* ViewController.swift */,
 				2D50FE4F224A2290003F7DD1 /* DetailViewController.swift */,
+				2D50FE53224A41E7003F7DD1 /* Picture.swift */,
 				2D50FE41224A1ED9003F7DD1 /* Main.storyboard */,
 				2D50FE44224A1EDA003F7DD1 /* Assets.xcassets */,
 				2D50FE46224A1EDA003F7DD1 /* LaunchScreen.storyboard */,
 				2D50FE49224A1EDA003F7DD1 /* Info.plist */,
+				2D50FE57224A6B0C003F7DD1 /* Planescape.jpg */,
 			);
 			path = Captioned;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				2D50FE48224A1EDA003F7DD1 /* LaunchScreen.storyboard in Resources */,
 				2D50FE45224A1EDA003F7DD1 /* Assets.xcassets in Resources */,
+				2D50FE58224A6B0C003F7DD1 /* Planescape.jpg in Resources */,
 				2D50FE43224A1ED9003F7DD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D50FE54224A41E7003F7DD1 /* Picture.swift in Sources */,
 				2D50FE50224A2290003F7DD1 /* DetailViewController.swift in Sources */,
 				2D50FE40224A1ED9003F7DD1 /* ViewController.swift in Sources */,
 				2D50FE3E224A1ED9003F7DD1 /* AppDelegate.swift in Sources */,
@@ -289,6 +297,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68Z4323Q26;
 				INFOPLIST_FILE = Captioned/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,6 +316,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68Z4323Q26;
 				INFOPLIST_FILE = Captioned/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
