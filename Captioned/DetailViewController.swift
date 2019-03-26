@@ -9,9 +9,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    // MARK: Properties and connections
     @IBOutlet var imageView: UIImageView!
     var selectedPicture: Picture?
     
+    // MARK: Views management
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,7 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
     }
     
+    // MARK: Helper methods
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         

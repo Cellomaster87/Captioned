@@ -123,7 +123,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             do {
                 pictures = try jsonDecoder.decode([Picture].self, from: savedPictures)
             } catch {
-                print("Failed to load pictures.")
+                print("Failed to load pictures")
             }
         }
     }
