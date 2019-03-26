@@ -15,8 +15,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(editCaption))
-        
         if let imageToLoad = selectedPicture?.image {
             let path = getDocumentsDirectory().appendingPathComponent(imageToLoad)
             imageView.image = UIImage(contentsOfFile: path.path)
@@ -34,24 +32,6 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.hidesBarsOnTap = false
-    }
-    
-    @objc func editCaption() {
-        let captionAC = UIAlertController(title: "Add caption!", message: "Describe your picture", preferredStyle: .alert)
-        captionAC.addTextField { (textField) in
-            textField.placeholder = "Enter caption"
-            textField.autocapitalizationType = .sentences
-            textField.font = UIFont.systemFont(ofSize: 20.0)
-        }
-        
-        captionAC.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self, weak captionAC] _ in
-            guard let newCaption = captionAC?.textFields?[0].text else { return }
-            
-            self?.title = newCaption
-            self?.selectedPicture?.caption = newCaption
-        }))
-        
-        present(captionAC, animated: true)
     }
     
     func getDocumentsDirectory() -> URL {

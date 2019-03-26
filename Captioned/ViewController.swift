@@ -44,8 +44,8 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Caption", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row].image
-        cell.detailTextLabel?.text = pictures[indexPath.row].caption
+        cell.textLabel?.text = pictures[indexPath.row].caption
+        cell.detailTextLabel?.text = pictures[indexPath.row].image
         
         return cell
     }
@@ -59,6 +59,12 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        pictures.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
 
     // MARK: - ImagePicker Delegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -71,12 +77,24 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             try? jpegData.write(to: imagePath)
         }
         
-        let picture = Picture(caption: "Caption", image: imageName)
-        pictures.append(picture)
-        save()
-        tableView.reloadData()
-        
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) { [weak self] in
+            let captionAC = UIAlertController(title: "Add caption!", message: "Describe your picture", preferredStyle: .alert)
+            captionAC.addTextField { (textField) in
+                textField.placeholder = "Enter caption"
+                textField.autocapitalizationType = .sentences
+            }
+            captionAC.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+            captionAC.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak self, weak captionAC] _ in
+                guard let newCaption = captionAC?.textFields?[0].text else { return }
+                
+            let picture = Picture(caption: newCaption, image: imageName)
+            self?.pictures.append(picture)
+            self?.save()
+            self?.tableView.reloadData()
+            }))
+            
+            self?.present(captionAC, animated: true)
+        }
     }
     
     // MARK: - Helper methods
